@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md bg-gray-800 p-8 rounded-lg shadow-lg">
+        <h3 class="text-4xl font-bold mb-6 text-center text-blue-400">Create Account</h3>
+        <form action="/register" method="post" class="space-y-4">
+            <div>
+                <input 
+                    class="w-full px-4 py-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-900 text-white border border-gray-700 placeholder-gray-400" 
+                    type="text" 
+                    placeholder="Username" 
+                    name="username">
+            </div>
+            <div>
+                <input 
+                    class="w-full px-4 py-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-900 text-white border border-gray-700 placeholder-gray-400" 
+                    type="text" 
+                    placeholder="Name" 
+                    name="name">
+            </div>
+            <div>
+                <input 
+                    class="w-full px-4 py-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-900 text-white border border-gray-700 placeholder-gray-400" 
+                    type="text" 
+                    placeholder="Age" 
+                    name="age">
+            </div>
+            <div>
+                <input 
+                    class="w-full px-4 py-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-900 text-white border border-gray-700 placeholder-gray-400" 
+                    type="email" 
+                    placeholder="Email" 
+                    name="email">
+            </div>
+            <div class="relative">
+                <input 
+                    id="password"
+                    class="w-full px-4 py-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none bg-gray-900 text-white border border-gray-700 placeholder-gray-400" 
+                    type="password" 
+                    placeholder="Password" 
+                    name="password">
+                <span 
+                    class="absolute inset-y-0 right-4 flex items-center cursor-pointer text-gray-400 hover:text-gray-200" 
+                    onclick="togglePasswordVisibility()">
+                    <i id="eye-icon" class="fas fa-eye"></i>
+                </span>
+            </div>
+            <div>
+                <button 
+                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-md transition duration-300">
+                    Create Account
+                </button>
+                
+            </div>
+        </form>
+        <button  class="w-full mt-3 bg-yellow-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-md transition duration-300" onclick="redirectToLogin()" class="button">
+            Login
+          </button>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+          // Redirect to the login route
+          window.location.href = '/login';
+        }
+      </script>
+</body>
+</html>
